@@ -1,0 +1,32 @@
+.Team {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Team input {
+  width: 230px;
+  height: 30px;
+  text-align: center;
+}
+
+.Team button {
+  border: 1px solid white;
+  padding:16px;
+  background-color: black;
+  font: inherit;
+  color: white;
+  cursor: pointer;
+  width: 55px;
+}
+
+.Team p {
+  font-size: 30px;
+}
+
+
+
