@@ -39,55 +39,30 @@ class App extends Component {
     }
   }
 
-  plusLeftHandler = () => {
-    const count = {...this.state.leftTeam};
-    count.counter += 2;
+  plus = (team) => {
+    const count = {...this.state[team]};
+    count.counter += 2
 
-    this.updateLeftTeamCounter(count)
+    this.updateTeamCounter(team, count)
   }
 
-  minLeftHandler = () => {
-    const count = { ...this.state.leftTeam };
-    count.counter -= 2;
+  minus = (team) => {
+    const count = {...this.state[team]};
+    count.counter -= 2
 
-    this.updateLeftTeamCounter(count);
+    this.updateTeamCounter(team, count)
   }
 
-  updateLeftTeamCounter(count){
+
+  updateTeamCounter(team, count){
     this.setState({
-      leftTeam: {
-        name: this.state.leftTeam.name,
+      [team]: {
+        name: this.state[team].name,
         counter: count.counter
       }
     });
   }
-
-  plusRightHandler = () => {
-    const count = { ...this.state.rightTeam };
-    count.counter += 2;
-
-    this.setState({
-      rightTeam: {
-        name: this.state.rightTeam.name,
-        counter: count.counter
-      }
-    });
-  }
-
-  minRightHandler = () => {
-    const count = { ...this.state.rightTeam };
-    count.counter -= 2;
-
-    this.setState({
-      rightTeam: {
-        name: this.state.rightTeam.name,
-        counter: count.counter
-      }
-    });
-  }
-
   
-
   render() {
     return (
       <div className={styles.App}>
@@ -98,10 +73,10 @@ class App extends Component {
         leftCounter={this.state.leftTeam.counter}
         leftName={this.state.leftTeam.name}
         nameChange={this.nameChangeHandler}
-        plusLeft={this.plusLeftHandler}
-        minLeft={this.minLeftHandler}
-        plusRight={this.plusRightHandler}
-        minRight={this.minRightHandler}
+        plusLeft={() => this.plus("leftTeam")}
+        minLeft={() => this.minus("leftTeam")}
+        plusRight={() => this.plus("rightTeam")}
+        minRight={() => this.minus("rightTeam")}
         />
       </div>
     );
