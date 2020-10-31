@@ -43,18 +43,17 @@ class App extends Component {
     const count = {...this.state.leftTeam};
     count.counter += 2;
 
-    this.setState({
-      leftTeam: {
-        name: this.state.leftTeam.name,
-        counter: count.counter
-      }
-    });
+    this.updateLeftTeamCounter(count)
   }
 
   minLeftHandler = () => {
     const count = { ...this.state.leftTeam };
     count.counter -= 2;
 
+    this.updateLeftTeamCounter(count);
+  }
+
+  updateLeftTeamCounter(count){
     this.setState({
       leftTeam: {
         name: this.state.leftTeam.name,
